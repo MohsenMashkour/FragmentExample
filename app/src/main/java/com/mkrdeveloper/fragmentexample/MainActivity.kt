@@ -18,12 +18,20 @@ class MainActivity : AppCompatActivity() {
         val btn1 = findViewById<Button>(R.id.btn1)
         val btn2 = findViewById<Button>(R.id.btn2)
 
+        /*supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragment, firstFragment)
+            commit()
 
+                //txt1.visibility = INVISIBLE
+        }
+
+         */
 
 
         btn1.setOnClickListener {
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.flFragment, firstFragment)
+                addToBackStack(null)
                 commit()
 
                 txt1.visibility = INVISIBLE
@@ -33,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         btn2.setOnClickListener {
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.flFragment, secondFragment)
+                addToBackStack(null)
                 commit()
 
                 txt1.visibility = INVISIBLE
