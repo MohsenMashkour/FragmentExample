@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View.INVISIBLE
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +18,9 @@ class MainActivity : AppCompatActivity() {
         val txt1 = findViewById<TextView>(R.id.txt1)
         val btn1 = findViewById<Button>(R.id.btn1)
         val btn2 = findViewById<Button>(R.id.btn2)
+
+
+        val edt1 = findViewById<EditText>(R.id.edt1)
 
         /*supportFragmentManager.beginTransaction().apply {
             replace(R.id.flFragment, firstFragment)
@@ -34,17 +38,26 @@ class MainActivity : AppCompatActivity() {
                 addToBackStack(null)
                 commit()
 
-                txt1.visibility = INVISIBLE
+                //txt1.visibility = INVISIBLE
             }
         }
 
         btn2.setOnClickListener {
+
+            val bundle = Bundle()
+
+            bundle.putString("String",edt1.text.toString())
+
+            secondFragment.arguments = bundle
+
+
+
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.flFragment, secondFragment)
                 addToBackStack(null)
                 commit()
 
-                txt1.visibility = INVISIBLE
+                //txt1.visibility = INVISIBLE
             }
         }
 
